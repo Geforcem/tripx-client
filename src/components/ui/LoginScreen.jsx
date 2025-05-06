@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import '../../assets/css/ui/LoginScreen.css';
 import { ASSET_PATHS } from '../../config/constants';
-import i18n from "i18next";
+import i18n from 'i18next';
 
-export default function LoginScreen({ currentLang,onGuest, onEmail, onSocial }) {
+export default function LoginScreen({ currentLang, onGuest, onEmail, onSocial }) {
     const { t } = useTranslation();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     const handleLanguageChange = (e) => {
         i18n.changeLanguage(e.target.value);
     };
+
     return (
         <div className="login-container">
             <div className="login-content">
@@ -19,6 +22,7 @@ export default function LoginScreen({ currentLang,onGuest, onEmail, onSocial }) 
                     className="login-logo"
                 />
                 <h1 className="login-title">{t('login.title')}</h1>
+
                 <select
                     className="language-select"
                     value={currentLang}
@@ -28,9 +32,30 @@ export default function LoginScreen({ currentLang,onGuest, onEmail, onSocial }) 
                     <option value="tr">Türkçe</option>
                     <option value="es">Español</option>
                 </select>
-                <button className="btn btn-email" onClick={onEmail}>
+
+                {/* --- Email / Password Inputs --- */}
+                <input
+                    type="email"
+                    className="login-input"
+                    placeholder={t('login.emailPlaceholder')}
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                />
+                <input
+                    type="password"
+                    className="login-input"
+                    placeholder={t('login.passwordPlaceholder')}
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
+                />
+
+                <button
+                    className="btn btn-email"
+                    onClick={() => onEmail(email, password)}
+                >
                     {t('login.email')}
                 </button>
+
                 <div className="social-buttons">
                     <button
                         className="btn btn-social btn-google"
@@ -42,7 +67,8 @@ export default function LoginScreen({ currentLang,onGuest, onEmail, onSocial }) 
                         className="btn btn-social btn-apple"
                         onClick={() => onSocial('apple')}
                     >
-                        {t('login.apple')}</button>
+                        {t('login.apple')}
+                    </button>
                     <button
                         className="btn btn-social btn-facebook"
                         onClick={() => onSocial('facebook')}
@@ -51,8 +77,12 @@ export default function LoginScreen({ currentLang,onGuest, onEmail, onSocial }) 
                     </button>
                 </div>
             </div>
+
             <div className="login-footer">
-                <button className="btn btn-guest" onClick={onGuest}>
+                <button
+                    className="btn btn-guest"
+                    onClick={onGuest}
+                >
                     {t('login.guest')}
                 </button>
             </div>

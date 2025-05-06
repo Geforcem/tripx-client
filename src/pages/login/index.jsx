@@ -1,24 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import LoginScreen from '../../components/ui/LoginScreen';
+import {
+    loginWithEmail,
+    loginWithGoogle,
+    loginWithFacebook
+} from '../../services/auth/auth.jsx'
 
 export default function LoginPage() {
     const navigate = useNavigate();
     const { i18n } = useTranslation();
+    const [error, setError] = useState('');
 
-
-
+    // Misafir devam
     const handleGuest = () => navigate('/home');
-    const handleEmail = () => navigate('/login');
-    const handleSocial = (provider) => navigate(`/auth/${provider}`);
+
+    // Email ile giriş
+    const handleEmail = async (email, password) => {
+        try {
+            setError('');
+            await loginWithEmail(email, password);
+            navigate('/home');
+        } catch (err) {
+            setError(err.message);
+        }
+    };
+
+    // Google ile giriş
+    const handleSocial = async (provider) => {
+        try {
+            setError('');
+            if (provider === 'google') {
+                await loginWithGoogle();
+            } else if (provider === 'facebook') {
+                await loginWithFacebook();
+            }
+            navigate('/home');
+        } catch (err) {
+            setError(err.message);
+        }
+    };
 
     return (
-        <LoginScreen
-            currentLang={i18n.language}
-            onGuest={handleGuest}
-            onEmail={handleEmail}
-            onSocial={handleSocial}
-        />
+        <>
+            {error && <div className="error-banner">{error}</div>}
+            <LoginScreen
+                currentLang={i18n.language}
+                onGuest={handleGuest}
+                onEmail={handleEmail}
+                onSocial={handleSocial}
+            />
+        </>
     );
 }

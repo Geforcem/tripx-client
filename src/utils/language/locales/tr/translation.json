@@ -5,7 +5,9 @@
     "email": "E-posta ile Giriş Yap",
     "google": "Google ile Giriş Yap",
     "facebook": "Facebook ile Giriş Yap",
-    "apple": "Apple ile Giriş Yap"
+    "apple": "Apple ile Giriş Yap",
+    "emailPlaceholder": "E-posta adresinizi girin",
+    "passwordPlaceholder": "Parolanızı girin"
   },
   "splash": {
     "login": "Hoş Geldiniz",

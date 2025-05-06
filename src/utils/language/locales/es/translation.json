@@ -5,7 +5,9 @@
     "email": "Iniciar sesión con Email",
     "google": "Iniciar con Google",
     "facebook": "Iniciar con Facebook",
-    "apple": "Iniciar con Apple"
+    "apple": "Iniciar con Apple",
+    "emailPlaceholder": "Introduce tu correo electrónico",
+    "passwordPlaceholder": "Introduce tu contraseña"
   },
   "splash": {
     "login": "¡Bienvenido!",
