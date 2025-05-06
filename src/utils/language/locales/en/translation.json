@@ -7,10 +7,23 @@
     "facebook": "Sign in with Facebook",
     "apple": "Sign in with Apple",
     "emailPlaceholder": "Enter your email",
-    "passwordPlaceholder": "Enter your password"
+    "passwordPlaceholder": "Enter your password",
+    "noAccount": "Don't have an account?",
+    "register": "Register"
   },
   "splash": {
     "login": "login",
     "subtitle": "Plan your dream route within your budget!"
+  },
+  "register": {
+    "title": "Create your TripX account",
+    "guest": "Continue as Guest",
+    "email": "Register with Email",
+    "emailPlaceholder": "Enter your email",
+    "passwordPlaceholder": "Create a password",
+    "google": "Register with Google",
+    "facebook": "Register with Facebook",
+    "haveAccount": "Already have an account?",
+    "login": "Sign in"
   }
 }

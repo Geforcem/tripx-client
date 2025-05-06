@@ -7,10 +7,23 @@
     "facebook": "Iniciar con Facebook",
     "apple": "Iniciar con Apple",
     "emailPlaceholder": "Introduce tu correo electrónico",
-    "passwordPlaceholder": "Introduce tu contraseña"
+    "passwordPlaceholder": "Introduce tu contraseña",
+    "noAccount": "¿No tienes una cuenta?",
+    "register": "Regístrate"
   },
   "splash": {
     "login": "¡Bienvenido!",
     "subtitle": "¡Planifica la ruta de tus sueños ajustada a tu presupuesto!"
+  },
+  "register": {
+    "title": "Crea tu cuenta de TripX",
+    "guest": "Continuar como Invitado",
+    "email": "Registrarse con Email",
+    "emailPlaceholder": "Introduce tu correo electrónico",
+    "passwordPlaceholder": "Crea una contraseña",
+    "google": "Registrarse con Google",
+    "facebook": "Registrarse con Facebook",
+    "haveAccount": "¿Ya tienes cuenta?",
+    "login": "Iniciar sesión"
   }
 }

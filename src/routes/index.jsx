@@ -1,8 +1,8 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import SplashScreen from '../pages/Splash';
-import LoginScreen from "../components/ui/LoginScreen.jsx";
-import LoginPage from "../pages/login/index.jsx";
+import LoginPage from "../pages/auth/login/index.jsx";
+import RegisterPage from "../pages/auth/register/index.jsx";
 // import other page components as needed
 
 export default function Index() {
@@ -10,7 +10,8 @@ export default function Index() {
         <Routes>
             <Route path="/" element={<SplashScreen />} />
             <Route path="/login" element={<LoginPage />} />
-            {/* Add additional routes here */}
+            <Route path="/register" element={<RegisterPage />} />
+            {/*<Route path="/home" element={<HomePage />} />*/}
         </Routes>
     );
 }

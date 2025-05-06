@@ -7,10 +7,23 @@
     "facebook": "Facebook ile Giriş Yap",
     "apple": "Apple ile Giriş Yap",
     "emailPlaceholder": "E-posta adresinizi girin",
-    "passwordPlaceholder": "Parolanızı girin"
+    "passwordPlaceholder": "Parolanızı girin",
+    "noAccount": "Hesabınız yok mu?",
+    "register": "Kayıt Ol"
   },
   "splash": {
     "login": "Hoş Geldiniz",
     "subtitle": "Hayalindeki rotayı bütçene uygun planla!"
+  },
+  "register": {
+    "title": "TripX hesabı oluştur",
+    "guest": "Misafir Olarak Devam Et",
+    "email": "E-posta ile Kayıt Ol",
+    "emailPlaceholder": "E-posta adresinizi girin",
+    "passwordPlaceholder": "Bir parola oluşturun",
+    "google": "Google ile Kayıt Ol",
+    "facebook": "Facebook ile Kayıt Ol",
+    "haveAccount": "Hesabınız varsa",
+    "login": "Giriş Yap"
   }
 }

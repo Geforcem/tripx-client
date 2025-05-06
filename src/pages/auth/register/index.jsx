@@ -1,33 +1,22 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import LoginScreen from '../../components/ui/LoginScreen';
-import {
-    loginWithEmail,
-    loginWithGoogle,
-    loginWithFacebook
-} from '../../services/auth/auth.jsx'
+import RegisterScreen from '../../../components/ui/auth/RegisterScreen.jsx';
+import { registerWithEmail, loginWithGoogle, loginWithFacebook } from '../../../services/auth/auth.jsx';
 
-export default function LoginPage() {
+export default function RegisterPage() {
     const navigate = useNavigate();
-    const { i18n } = useTranslation();
     const [error, setError] = useState('');
 
-    // Misafir devam
-    const handleGuest = () => navigate('/home');
-
-    // Email ile giriş
-    const handleEmail = async (email, password) => {
+    const handleRegister = async (email, password) => {
         try {
             setError('');
-            await loginWithEmail(email, password);
-            navigate('/home');
+            await registerWithEmail(email, password);
+            navigate('/routes');  // kayıt sonrası yönlendirme
         } catch (err) {
             setError(err.message);
         }
     };
 
-    // Google ile giriş
     const handleSocial = async (provider) => {
         try {
             setError('');
@@ -36,20 +25,21 @@ export default function LoginPage() {
             } else if (provider === 'facebook') {
                 await loginWithFacebook();
             }
-            navigate('/home');
+            navigate('/routes');
         } catch (err) {
             setError(err.message);
         }
     };
 
+    const handleGuest = () => navigate('/routes');
+
     return (
         <>
             {error && <div className="error-banner">{error}</div>}
-            <LoginScreen
-                currentLang={i18n.language}
-                onGuest={handleGuest}
-                onEmail={handleEmail}
+            <RegisterScreen
+                onRegister={handleRegister}
                 onSocial={handleSocial}
+                onGuest={handleGuest}
             />
         </>
     );

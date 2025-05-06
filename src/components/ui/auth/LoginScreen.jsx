@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import '../../assets/css/ui/LoginScreen.css';
-import { ASSET_PATHS } from '../../config/constants';
+import '../../../assets/css/ui/LoginScreen.css';
+import { ASSET_PATHS } from '../../../config/constants.jsx';
 import i18n from 'i18next';
+import {Link} from "react-router-dom";
 
 export default function LoginScreen({ currentLang, onGuest, onEmail, onSocial }) {
     const { t } = useTranslation();
@@ -55,6 +56,13 @@ export default function LoginScreen({ currentLang, onGuest, onEmail, onSocial })
                 >
                     {t('login.email')}
                 </button>
+
+                <p className="login-register-prompt">
+                    {t('login.noAccount')}{' '}
+                    <Link to="/register" className="login-register-link">
+                        {t('login.register')}
+                    </Link>
+                </p>
 
                 <div className="social-buttons">
                     <button

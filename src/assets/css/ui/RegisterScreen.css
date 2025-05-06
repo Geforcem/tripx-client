@@ -1,14 +1,14 @@
-/* LoginScreen.css */
+/* RegisterScreen.css */
 
-/* Temel reset */
+/* Temel reset ve yatay scroll engelle */
 html, body {
     margin: 0;
     padding: 0;
-    overflow-x: hidden;  /* yatay scroll’u engelle */
+    overflow-x: hidden;
 }
 
 /* Ana konteyner */
-.login-container {
+.register-container {
     position: fixed;
     inset: 0;
     display: flex;
@@ -19,50 +19,34 @@ html, body {
     overflow-x: hidden;
 }
 
-/* İçerik bölümü */
-.login-content {
-    overflow-x: hidden;
+/* İçerik alanı */
+.register-content {
+
     max-width: 400px;
     width: 100%;
-    text-align: center;
     margin: 0 auto;
+    text-align: center;
+    flex: 1;
 }
 
 /* Logo */
-.login-logo {
+.register-logo {
     width: min(60vw, 16rem);
     height: auto;
     margin-bottom: 1rem;
 }
 
 /* Başlık */
-.login-title {
-    color: #213547;
+.register-title {
+    color: #4f46e5;
     font-size: clamp(1.5rem, 5vw, 2rem);
     margin-bottom: 1rem;
     font-weight: 600;
 }
 
-/* Dil seçici (select) */
+/* Input ve select */
+.register-input,
 .language-select {
-    width: 100%;
-    padding: 0.5rem 1rem;
-    margin-bottom: 1rem;
-    font-size: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background-color: #fff;
-    color: #111;
-    box-sizing: border-box;
-    appearance: none; /* varsayılan ok işaretini kaldır */
-    background-image: url('data:image/svg+xml;charset=UTF-8,<svg fill="%23666" height="24" viewBox="0 0 24 24" width="24"><path d="M7 10l5 5 5-5z"/></svg>');
-    background-repeat: no-repeat;
-    background-position: right 1rem center;
-    background-size: 1rem;
-}
-
-/* Input alanları */
-.login-input {
     width: 100%;
     padding: 0.75rem 1rem;
     margin: 0.5rem 0;
@@ -85,24 +69,18 @@ html, body {
     cursor: pointer;
 }
 
-/* Misafir butonu */
-.btn-guest {
-    background-color: #e5e7eb;
-    color: #111;
-}
-
-/* E-posta butonu */
+/* E-posta kaydı butonu */
 .btn-email {
     background-color: #4f46e5;
     color: #fff;
 }
 
-/* Sosyal butonların kapsayıcısı */
+/* Sosyal buton kapsayıcısı */
 .social-buttons {
     display: flex;
     justify-content: space-between;
     gap: 0.5rem;
-    margin: 4rem 0; /* Üstte ve altta 1.5rem boşluk */
+    margin: 1.5rem 0;
 }
 
 /* Sosyal buton genel */
@@ -124,36 +102,41 @@ html, body {
     background-color: #1877F2;
 }
 
-.login-register-prompt {
+/* Footer - misafir butonu */
+.register-footer {
+    margin-top: auto;
+    width: 100%;
+    padding-top: 0.5rem;
+    border-top: 1px solid #ddd;
+}
+
+.register-footer .btn-guest {
+    background-color: #e5e7eb;
+    color: #111;
+}
+
+.register-login-prompt {
     margin: 0.5rem 0;
     font-size: 0.9rem;
     color: #555;
 }
 
-.login-register-link {
+.register-login-link {
     color: #4f46e5;
     text-decoration: none;
     font-weight: 600;
 }
 
-.login-register-link:hover {
+.register-login-link:hover {
     text-decoration: underline;
 }
 
-.login-footer {
-    margin-top: auto;    /* Footer’u en alta iter */
-    width: 100%;
-    padding-top: 0.5rem;
-    border-top: 1px solid #ddd;
-    box-sizing: border-box;
-}
-
-/* Responsive ayarlar */
+/* Responsive */
 @media (max-width: 400px) {
-    .login-content {
+    .register-content {
         max-width: 100%;
     }
-    .btn, .language-select, .login-input {
+    .btn, .language-select, .register-input {
         font-size: 0.9rem;
         padding: 0.6rem;
     }
