@@ -9,7 +9,7 @@ export default function SplashPage() {
     useEffect(() => {
         setFadeIn(true);
         const timer = setTimeout(() => {
-            navigate('/welcome');
+            navigate('/login');
         }, 3000);
         return () => clearTimeout(timer);
     }, [navigate]);

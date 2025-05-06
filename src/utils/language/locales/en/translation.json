@@ -1,6 +1,14 @@
 {
+  "login": {
+    "title": "login to TripX",
+    "guest": "Continue as Guest",
+    "email": "Sign in with Email",
+    "google": "Sign in with Google",
+    "facebook": "Sign in with Facebook",
+    "apple": "Sign in with Apple"
+  },
   "splash": {
-    "welcome": "Welcome",
+    "login": "login",
     "subtitle": "Plan your dream route within your budget!"
   }
 }

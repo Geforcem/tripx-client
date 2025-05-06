@@ -1,6 +1,14 @@
 {
+  "login": {
+    "title": "TripX’e Hoş Geldiniz",
+    "guest": "Misafir Olarak Devam Et",
+    "email": "E-posta ile Giriş Yap",
+    "google": "Google ile Giriş Yap",
+    "facebook": "Facebook ile Giriş Yap",
+    "apple": "Apple ile Giriş Yap"
+  },
   "splash": {
-    "welcome": "Hoş Geldiniz",
+    "login": "Hoş Geldiniz",
     "subtitle": "Hayalindeki rotayı bütçene uygun planla!"
   }
 }

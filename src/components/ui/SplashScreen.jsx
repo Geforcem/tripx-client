@@ -11,10 +11,10 @@ export default function SplashScreen({ fadeIn }) {
             <div className={`${fadeIn ? 'fade-in' : ''} splash-content`}>
                 <img
                     src={ASSET_PATHS.LOGO}
-                    alt={t('splash.welcome')}
+                    alt={t('splash.login')}
                     className="splash-logo"
                 />
-                <h1 className="splash-title">{t('splash.welcome')}</h1>
+                <h1 className="splash-title">{t('splash.login')}</h1>
                 <p className="splash-subtitle">{t('splash.subtitle')}</p>
             </div>
         </div>

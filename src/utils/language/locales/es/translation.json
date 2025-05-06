@@ -1,6 +1,14 @@
 {
+  "login": {
+    "title": "Bienvenido a TripX",
+    "guest": "Continuar como Invitado",
+    "email": "Iniciar sesión con Email",
+    "google": "Iniciar con Google",
+    "facebook": "Iniciar con Facebook",
+    "apple": "Iniciar con Apple"
+  },
   "splash": {
-    "welcome": "¡Bienvenido!",
+    "login": "¡Bienvenido!",
     "subtitle": "¡Planifica la ruta de tus sueños ajustada a tu presupuesto!"
   }
 }
