@@ -1,11 +1,9 @@
-import React, { useState } from 'react'
-import './App.css'
+import React from 'react'
+import './utils/language/i18n.jsx';
+import AppRoutes from "./routes";
 import {BrowserRouter} from "react-router-dom";
-import AppRoutes from "./routes/index.jsx";
 
 function App() {
-  const [count, setCount] = useState(0)
-
     return (
         <BrowserRouter>
             <AppRoutes/>
