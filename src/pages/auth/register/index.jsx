@@ -1,37 +1,37 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import RegisterScreen from '../../../components/ui/auth/RegisterScreen.jsx';
-import { registerWithEmail, loginWithGoogle, loginWithFacebook } from '../../../services/auth/auth.jsx';
+import useAuth from '../../../hooks/useAuth';
 
 export default function RegisterPage() {
     const navigate = useNavigate();
+    const { register, loginSocial, providers } = useAuth();
     const [error, setError] = useState('');
 
+    // E-posta/şifre ile kayıt
     const handleRegister = async (email, password) => {
         try {
             setError('');
-            await registerWithEmail(email, password);
-            navigate('/routes');  // kayıt sonrası yönlendirme
+            await register(email, password);
+            navigate('/home');
         } catch (err) {
             setError(err.message);
         }
     };
 
-    const handleSocial = async (provider) => {
+    // Sosyal giriş (Google / Facebook)
+    const handleSocial = async (providerKey) => {
         try {
             setError('');
-            if (provider === 'google') {
-                await loginWithGoogle();
-            } else if (provider === 'facebook') {
-                await loginWithFacebook();
-            }
-            navigate('/routes');
+            await loginSocial(providerKey);
+            navigate('/home');
         } catch (err) {
             setError(err.message);
         }
     };
 
-    const handleGuest = () => navigate('/routes');
+    // Misafir devam
+    const handleGuest = () => navigate('/home');
 
     return (
         <>
@@ -40,6 +40,7 @@ export default function RegisterPage() {
                 onRegister={handleRegister}
                 onSocial={handleSocial}
                 onGuest={handleGuest}
+                providers={providers}
             />
         </>
     );

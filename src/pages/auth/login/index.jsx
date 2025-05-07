@@ -2,40 +2,33 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import LoginScreen from '../../../components/ui/auth/LoginScreen.jsx';
-import {
-    loginWithEmail,
-    loginWithGoogle,
-    loginWithFacebook
-} from '../../../services/auth/auth.jsx'
+import useAuth from '../../../hooks/useAuth';
 
 export default function LoginPage() {
     const navigate = useNavigate();
     const { i18n } = useTranslation();
     const [error, setError] = useState('');
 
+    // Context’ten login fonksiyonları ve provider enum’ları alıyoruz
+    const { login, loginSocial, providers } = useAuth();
+
     // Misafir devam
     const handleGuest = () => navigate('/home');
 
-    // Email ile giriş
-    const handleEmail = async (email, password) => {
+    // E-posta/şifre ile giriş
+    const handleEmail = async (email, pwd) => {
         try {
-            setError('');
-            await loginWithEmail(email, password);
+            await login(email, pwd);
             navigate('/home');
         } catch (err) {
             setError(err.message);
         }
     };
 
-    // Google ile giriş
-    const handleSocial = async (provider) => {
+    // Google/Facebook ile sosyal giriş
+    const handleSocial = async (providerKey) => {
         try {
-            setError('');
-            if (provider === 'google') {
-                await loginWithGoogle();
-            } else if (provider === 'facebook') {
-                await loginWithFacebook();
-            }
+            await loginSocial(providerKey);
             navigate('/home');
         } catch (err) {
             setError(err.message);
@@ -50,6 +43,8 @@ export default function LoginPage() {
                 onGuest={handleGuest}
                 onEmail={handleEmail}
                 onSocial={handleSocial}
+                // LoginScreen artık providers prop’unu da alabilir:
+                providers={providers}
             />
         </>
     );

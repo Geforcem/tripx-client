@@ -1,14 +1,15 @@
-import React from 'react'
+import React from 'react';
 import './utils/language/i18n.jsx';
-import AppRoutes from "./routes";
-import {BrowserRouter} from "react-router-dom";
+import AppRoutes from './routes';
+import { BrowserRouter } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext.jsx';
 
-function App() {
+export default function App() {
     return (
-        <BrowserRouter>
-            <AppRoutes/>
-        </BrowserRouter>
+        <AuthProvider>
+            <BrowserRouter>
+                <AppRoutes />
+            </BrowserRouter>
+        </AuthProvider>
     );
 }
-
-export default App
