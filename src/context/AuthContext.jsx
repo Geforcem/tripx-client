@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, useEffect } from 'react';
+import React, { createContext, useReducer, useEffect, useCallback, useMemo } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../config/firebase';
 import { login, register, loginSocial, logout as logoutService } from '../services/auth/authService';
@@ -40,45 +40,45 @@ export const AuthProvider = ({ children }) => {
     }, []);
 
     // Email/password ile giriş
-    const handleLogin = async (email, pwd) => {
+    const handleLogin = useCallback(async (email, pwd) => {
         const user = await login(email, pwd);
         saveAuthUser(user);
         dispatch({ type: 'LOGIN', payload: user });
-    };
+    }, []);
 
     // Email/password ile kayıt
-    const handleRegister = async (email, pwd) => {
+    const handleRegister = useCallback(async (email, pwd) => {
         const user = await register(email, pwd);
         saveAuthUser(user);
         dispatch({ type: 'LOGIN', payload: user });
-    };
+    }, []);
 
     // Sosyal giriş
-    const handleLoginSocial = async (provider) => {
+    const handleLoginSocial = useCallback(async (provider) => {
         const user = await loginSocial(provider);
         saveAuthUser(user);
         dispatch({ type: 'LOGIN', payload: user });
-    };
+    }, []);
 
     // Çıkış
-    const handleLogout = async () => {
+    const handleLogout = useCallback(async () => {
         await logoutService();
         clearAuthUser();
         dispatch({ type: 'LOGOUT' });
-    };
+    }, []);
+
+    const contextValue = useMemo(() => ({
+        user: state.user,
+        initializing: state.initializing,
+        providers: AuthProviders,
+        login: handleLogin,
+        register: handleRegister,
+        loginSocial: handleLoginSocial,
+        logout: handleLogout
+    }), [state.user, state.initializing, handleLogin, handleRegister, handleLoginSocial, handleLogout]);
 
     return (
-        <AuthContext.Provider
-            value={{
-                user: state.user,
-                initializing: state.initializing,
-                providers: AuthProviders,
-                login: handleLogin,
-                register: handleRegister,
-                loginSocial: handleLoginSocial,
-                logout: handleLogout
-            }}
-        >
+        <AuthContext.Provider value={contextValue}>
             {children}
         </AuthContext.Provider>
     );
