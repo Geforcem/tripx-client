@@ -14,6 +14,7 @@ export default function HomePage() {
     return (
         <div>
             <h1>Hoş geldiniz, {user.email}</h1>
+            <p>Hoş geldiniz, {user.token}</p>
             <button onClick={onLogout}>Çıkış Yap</button>
         </div>
     );

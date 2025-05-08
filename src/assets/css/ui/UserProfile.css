@@ -1,0 +1,118 @@
+/* src/components/UserProfile.css */
+
+/* Global reset ve beyaz arka plan */
+html, body, #root {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #fff;
+}
+
+/* Profil kartını sayfanın en üstüne sabitle */
+.profile-container {
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: #fff;
+    color: #000;
+    max-width: 400px;
+    width: calc(100% - 32px);
+    padding: 16px;
+    font-family: Arial, sans-serif;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #007bff;
+}
+
+.profile-info {
+    flex: 1;
+    margin-left: 12px;
+}
+
+.name {
+    margin: 0;
+    font-size: 20px;
+}
+
+.subtext {
+    margin: 4px 0 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.edit-button,
+.save-button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.cancel-button {
+    background: transparent;
+    color: #007bff;
+    border: 1px solid #007bff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 8px;
+}
+
+.about {
+    /* Yukarıdan boşluk eklendi */
+    margin: 16px 0;
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.profile-details {
+    font-size: 14px;
+}
+
+.detail-item {
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.detail-label {
+    width: 100px;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 12px;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+    color: #000;
+    margin-top: 4px;
+    box-sizing: border-box;
+}
